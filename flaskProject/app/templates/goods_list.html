@@ -1,0 +1,59 @@
+{% extends "base2.html" %}
+{% block title %}Lista de producto{% endblock %}
+{% block body %}
+
+<style type="text/css">
+	table {
+		border-collapse: collapse;
+	}
+
+	/*商品列表第1列*/
+	.col1 {
+		padding-top: 5px;
+		border-top: 1px dashed #666666;
+		text-indent: 40px
+	}
+
+	/*商品列表第2列*/
+	.col2 {
+		padding-top: 5px;
+		border-top: 1px dashed #666666;
+		text-align: right;
+	}
+
+	/*商品列表第3列*/
+	.col3 {
+		padding-top: 5px;
+		border-top: 1px dashed #666666;
+		text-align: center;
+	}
+
+</style>
+
+<table width="100%" border="0" align="center">
+    <tr>
+        <td width="616">
+            <img src="{{ url_for('static', filename='images/list.png') }}" width="50" align="absmiddle"/>
+            <span>Lista de productos</span>
+        </td>
+        {% include 'goods_header.html' %}
+    </tr>
+</table>
+<hr width="100%"/>
+<div class="text3" align="center">Por favor, elija sus productos favoritos de la lista.</div>
+<br>
+<table width="100%" border="0" align="center">
+    <tr bgcolor="#b4c8ed">
+        <th>Nombre de producto</th>
+        <th width="5%">Precio</th>
+        <th width="15%">Add to cart</th>
+    </tr>
+  {% for goods in list %}
+    <tr bgcolor={{ loop.cycle('#ffffff', '#edf8ff') }}>
+        <td class="col1"><a href="/detail?id={{ goods.id }}">{{ goods.description }}</a></td>
+        <td class="col2">￥{{ goods.price}}</td>
+        <td class="col3"><a href="/add?id={{ goods.id }}&name={{ goods.name }}&price={{ goods.price }}">Add to cart</a></td>
+    </tr>
+  {% endfor %}
+</table>
+{% endblock %}

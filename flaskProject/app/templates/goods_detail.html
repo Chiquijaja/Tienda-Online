@@ -1,0 +1,37 @@
+{% extends "base2.html" %}
+{% block title %}Detalles del producto.{% endblock %}
+{% block body %}
+<style type="text/css">
+.title {
+	font-size: 20px;
+	color: #FF6600;
+	font-style: italic;
+}
+
+</style>
+
+<table width="100%" border="0" align="center">
+    <tr>
+        <td width="616"><img src="{{ url_for('static', filename='images/info.png') }}" width="30" align="absmiddle"/></td>
+        {% include 'goods_header.html' %}
+    </tr>
+</table>
+<hr width="100%"/>
+<div class="text3" align="center">{{ goods.name }}</div>
+<table width="100%" border="0" align="center">
+    <tr>
+        <td width="40%" align="right">
+            <div><img src="{{ url_for('static', filename='goods_images/') }}{{ goods.image }}" width="360px"
+                      height="360px"/></div>
+            <br></td>
+        <td>
+            <div align="center" class="text4">Un precio：<span class="title">￥{{ goods.price }}euro</span></div>
+            <br>
+            <div><a href="/add?id={{ goods.id }}&name={{ goods.name }}&price={{ goods.price }}">
+                <img src="{{ url_for('static', filename='images/button.png') }}"width="50"/>
+            </a>
+            </div>
+        </td>
+    </tr>
+</table>
+{% endblock %}

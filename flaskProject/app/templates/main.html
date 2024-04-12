@@ -1,0 +1,34 @@
+{% extends "base1.html" %}
+{% block title %}主页面{% endblock %}
+{% block body %}
+<style type="text/css">
+a:link {
+	font-size: 18px;
+	color: #DB8400;
+	text-decoration: none;
+	font-weight: bolder;
+}
+a:visited {
+	font-size: 18px;
+	color: #DB8400;
+	text-decoration: none;
+	font-weight: bolder;
+}
+a:hover {
+	font-size: 18px;
+	color: #DB8400;
+	text-decoration: underline;
+	font-weight: bolder;
+}
+</style>
+
+<div>
+  <p class="text1"> <img src="{{ url_for('static', filename='images/4.jpg') }}"   align="absmiddle" /> <a href="/list">Lista de producto</a> </p>
+  <p class="text2"> Puede explorar y comprar los productos que le interesen de la lista de productos. </p>
+</div>
+<hr width="100%" />
+<div>
+  <p class="text1"> <img src="{{ url_for('static', filename='images/mycar1.jpg') }}" align="absmiddle"  /> <a href="/cart">Cart</a> </p>
+  <p class="text2"> Puede agregar los productos que le interesen al carrito de compras </p>
+</div>
+{% endblock %}

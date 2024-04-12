@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/public.css') }}">
+</head>
+
+<body>
+
+<!-- 显示信息 -->
+{% with messages = get_flashed_messages() %}
+ {% if messages %}
+    <ul>
+       {% for message in messages %}
+       <li class="success">{{ message }}</li>
+       {% endfor %}
+    </ul>
+ {% endif %}
+{% endwith %}
+
+<!--页面内容-->
+{% block body %}{% endblock %}
+
+<div class="footer">
+    <hr width="100%"/>
+    Chijoshi tienda online de comida asiático
+</div>
+</body>
+</html>
